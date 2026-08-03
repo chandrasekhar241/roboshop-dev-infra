@@ -11,7 +11,6 @@ resource "aws_instance" "bastion" {
     root_block_device {
     volume_size           = 50  # Changed from 30
     volume_type           = "gp3" # general puropose SSD {gp3 is recomended}
-    delete_on_termination = true
 
     tags = merge(
     {
