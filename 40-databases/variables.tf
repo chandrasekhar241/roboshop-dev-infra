@@ -15,3 +15,8 @@ variable "domain_name" {
     default = "daws90saws.shop"
   
 }
+
+variable "mysql_root_password" {
+    type = string
+  
+}
