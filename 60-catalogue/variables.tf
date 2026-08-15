@@ -6,6 +6,11 @@ variable "environment" {
     default = "dev"
 }
 
+variable "app_version" {
+    default = "v3"
+  
+}
+
 # variable "zone_id" {
 #     default = "Z08591453NE7S2K54TI4E"
   
