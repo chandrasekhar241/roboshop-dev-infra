@@ -12,7 +12,7 @@ variable "app_version" {
 }
 
 variable "domain_name" {
-    default = daws90saws.shop
+    default = "daws90saws.shop"
   
 }
 # variable "zone_id" {
