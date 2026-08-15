@@ -104,6 +104,7 @@ resource "aws_launch_template" "catalogue" {
 }
 
 resource "aws_lb_target_group" "catalogue" {
+
   name     = "${local.common_name}-catalogue"
 
   port     = 8080
@@ -117,7 +118,7 @@ resource "aws_lb_target_group" "catalogue" {
     matcher = "200-299"
     path = "/health"
     port = 8080
-    protocol = "http"
+    protocol = "HTTP"
     timeout = 5
     unhealthy_threshold = 2
   }
