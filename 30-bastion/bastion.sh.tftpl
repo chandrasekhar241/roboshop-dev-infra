@@ -1,8 +1,41 @@
 #!/bin/bash
 
 growpart /dev/nvme0n1 ${partition_number}
-lvextend -r -L +${extend_size}G /dev/mapper/RootVG-homeVol
-xfs_growfs /home
-yum install -y yum-utils
-yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-yum -y install terraform
+lvextend -r -L +${extend_size}G /dev/mapper/RootVG-varVol
+xfs_growfs /var
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum install -y terraform
+
+#sudo yum -y install
+
+# dnf -y install dnf-plugins-core
+# dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+# dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+# systemctl start docker
+# systemctl enable docker
+# usermod -aG docker ec2-user
+
+# # -----------------------------
+# # Pull SonarQube image
+# # -----------------------------
+# docker pull sonarqube:community
+
+# # -----------------------------
+# # Run SonarQube
+# # -----------------------------
+# docker run -d \
+#   --name sonarqube \
+#   --restart unless-stopped \
+#   -p 9000:9000 \
+#   -v sonarqube_data:/opt/sonarqube/data \
+#   -v sonarqube_logs:/opt/sonarqube/logs \
+#   -v sonarqube_extensions:/opt/sonarqube/extensions \
+#   sonarqube:community
+
+# # -----------------------------
+# # Display status
+# # -----------------------------
+# docker ps
